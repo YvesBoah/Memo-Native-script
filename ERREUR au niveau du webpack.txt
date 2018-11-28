@@ -1,0 +1,1 @@
+on corrige cette erreur avec la commande : npm i --save-dev nativescript-dev-webpack@next

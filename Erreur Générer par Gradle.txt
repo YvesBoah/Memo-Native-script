@@ -1,0 +1,29 @@
+Erreur de TYPE : 
+
+BUILD FAILED in 3s
+Unable to apply changes on device: emulator-5554. Error is: Failed to build plugin nativescript-socket.io :
+Error: Command gradlew.bat failed with exit code 1.
+
+
+La Résolution se fait par ajout de dépendences dans le fichier app.gradle se trouvant dans :
+
+Android/src/
+
+
+coller le code ci-dessous : 
+
+// Ajout de dépendences
+
+dependencies {
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                details.useVersion '26.0.+'
+            }
+        }
+    }
+}
+ 
+----------------------------------- OU Installer Gradle Manuellement -----------------------------------
+
